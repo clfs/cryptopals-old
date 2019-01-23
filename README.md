@@ -1,6 +1,7 @@
 Solutions to the [Cryptopals] challenges.
 
 Reformat, type check, and run tests:
+
 ```
 $ black .
 $ mypy .
