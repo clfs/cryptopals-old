@@ -13,14 +13,14 @@ def xor_c(a, b: int):
 
 
 def pairs(it):
-    # pairs('goats') -> 'go', 'oa', 'at', 'ts'
+    # pairs('cats') -> ('c', 'a'), ('a', 't'), ('t', 's')
     a, b = itertools.tee(it)
     next(b, None)
     return zip(a, b)
 
 
 def blocks(x, n):
-    # blocks('goats', 2) -> 'go', 'at', 's'
+    # blocks('goats', 2) -> ['go', 'at', 's']
     return [x[i : i + n] for i in range(0, len(x), n)]
 
 
