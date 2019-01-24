@@ -1,12 +1,14 @@
 import base64
 
+from Cryptodome.Util.strxor import strxor
+
 import test_03
 import test_05
 import util
 
 
 def hamming(a, b):
-    return sum(bin(v).count("1") for v in util.xor(a, b))
+    return sum(bin(v).count("1") for v in strxor(a, b))
 
 
 def find_key_size(ct):

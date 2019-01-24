@@ -1,8 +1,8 @@
-import util
+from Cryptodome.Util.strxor import strxor_c
 
 
 def find_pt(cts):
-    pts = (util.xor_c(ct, k) for ct in cts for k in range(256))
+    pts = (strxor_c(ct, k) for ct in cts for k in range(256))
     heuristic = lambda pt: sum(b in b" etaoin" for b in pt)
     return max(pts, key=heuristic)
 

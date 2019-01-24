@@ -4,14 +4,6 @@ from Cryptodome.Cipher import AES
 from Cryptodome.Util.Padding import pad, unpad
 
 
-def xor(a, b):
-    return bytes(x ^ y for x, y in zip(a, b))
-
-
-def xor_c(a, b: int):
-    return bytes(x ^ y for x, y in zip(a, itertools.repeat(b)))
-
-
 def pairs(it):
     # pairs('cats') -> ('c', 'a'), ('a', 't'), ('t', 's')
     a, b = itertools.tee(it)

@@ -1,13 +1,13 @@
-import util
+from Cryptodome.Util.strxor import strxor_c
 
 
 def find_key(ct):
-    heuristic = lambda k: sum(b in b" etaoin" for b in util.xor_c(ct, k))
+    heuristic = lambda k: sum(b in b" etaoin" for b in strxor_c(ct, k))
     return max(range(256), key=heuristic)
 
 
 def decrypt(ct):
-    return util.xor_c(ct, find_key(ct))
+    return strxor_c(ct, find_key(ct))
 
 
 def test_solve():

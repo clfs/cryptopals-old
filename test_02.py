@@ -1,8 +1,8 @@
-import util
+from Cryptodome.Util.strxor import strxor
 
 
 def xor_hex(a, b):
-    return util.xor(bytes.fromhex(a), bytes.fromhex(b)).hex()
+    return strxor(bytes.fromhex(a), bytes.fromhex(b)).hex()
 
 
 def test_solve():
