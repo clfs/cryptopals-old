@@ -7,20 +7,14 @@ import test_05
 import util
 
 
-def hamming(a, b):
+def diff(a, b):
+    if len(a) != len(b):  # `strxor` is invalid, so default to a diff of 0.
+        return 0
     return sum(bin(v).count("1") for v in strxor(a, b))
 
 
 def find_key_size(ct):
-    def heuristic(ks):
-        score, pairs = 0, util.pairs(util.blocks(ct, ks))
-        for x, y in pairs:
-            try:
-                score += hamming(x, y)
-            except ValueError:  # len(x) != len(y)
-                continue
-        return score
-
+    heuristic = lambda ks: sum(diff(x, y) for x, y in util.pairs(util.blocks(ct, ks)))
     return min(range(2, 61), key=heuristic)  # Bumped up to 60 for later.
 
 
