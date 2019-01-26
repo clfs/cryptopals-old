@@ -14,7 +14,7 @@ def hamming(a, b):
 def find_key_size(ct):
     def heuristic(ks):
         pairs = util.pairs(util.blocks(ct, ks))
-        return sum(diff(x, y) for x, y in pairs if len(x) == len(y))
+        return sum(hamming(x, y) for x, y in pairs if len(x) == len(y))
 
     return min(range(2, 61), key=heuristic)  # Bumped up to 60 for later.
 
@@ -28,10 +28,10 @@ def decrypt(ct):
     return test_05.repeating_xor(ct, find_key(ct))
 
 
-def test_diff():
+def test_hamming():
     a = b"this is a test"
     b = b"wokka wokka!!!"
-    assert diff(a, b) == 37
+    assert hamming(a, b) == 37
 
 
 def test_solve():
