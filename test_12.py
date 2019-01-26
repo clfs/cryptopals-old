@@ -25,6 +25,7 @@ def recover_suffix(oracle):
     """Recover the oracle's suffix."""
 
     def find_block_size():
+        """Largest possible size is 128 bytes (Threefish)."""
         cts = (oracle.response(bytes(n)) for n in range(128))
         return functools.reduce(math.gcd, map(len, cts))
 
