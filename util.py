@@ -1,8 +1,23 @@
 import itertools
+import secrets
 
 from Cryptodome.Cipher import AES
 from Cryptodome.Util.Padding import pad, unpad
 from Cryptodome.Util.strxor import strxor
+
+
+def rbytes(n):
+    """rbytes(0) -> b""."""
+    return secrets.token_bytes(n)
+
+
+def rbool():
+    return bool(secrets.randbits(1))
+
+
+def rint(a, b):
+    """a <= rint(a, b) <= b."""
+    return a + secrets.randbelow(b - a + 1)
 
 
 def pairs(it):
