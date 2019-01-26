@@ -43,5 +43,5 @@ class AesCbcCipher:
 
     def decrypt(self, ct):
         c = [self.iv] + blocks(ct, 16)
-        p = [strxor(c[i - 1], self.ecb.decrypt(c[i])) for i in range(1, len(c))]
+        p = [strxor(cur, self.ecb.decrypt(nxt)) for cur, nxt in pairs(c)]
         return unpad(b"".join(p), 16)
