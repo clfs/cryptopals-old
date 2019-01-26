@@ -6,6 +6,10 @@ from Cryptodome.Util.Padding import pad, unpad
 from Cryptodome.Util.strxor import strxor
 
 
+def brange(*args):
+    return (bytes([n]) for n in range(*args))
+
+
 def rbytes(n):
     """rbytes(0) -> b""."""
     return secrets.token_bytes(n)
