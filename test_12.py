@@ -23,7 +23,7 @@ class Oracle:
 
 def recover_suffix(oracle):
     def find_block_size():
-        """Largest possible size is 128 bytes (Threefish)."""
+        # Largest possible size is 128 bytes (Threefish).
         cts = (oracle.response(bytes(n)) for n in range(128))
         return functools.reduce(math.gcd, map(len, cts))
 
