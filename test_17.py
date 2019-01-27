@@ -53,7 +53,7 @@ def recover_token(oracle):
                 p2[i] = guess
                 iv = xor(c1, p2, padding)
                 if i == 15:  # Ugly hack; prevent creating new valid padding.
-                    iv[14] = 0
+                    iv[:14] = bytearray(14)
                 if oracle.is_padding_ok(bytes(iv + c2)):
                     break
         ans += p2
