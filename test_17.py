@@ -51,10 +51,10 @@ def recover_token(oracle):
             padding = pad(bytes(i), 16)
             for guess in range(256):
                 p2[i] = guess
-                c1_alt = xor(c1, p2, padding)
+                iv = xor(c1, p2, padding)
                 if i == 15:  # Ugly hack; prevent creating new valid padding.
-                    c1_alt[14] = 0
-                if oracle.is_padding_ok(bytes(c1_alt + c2)):
+                    iv[14] = 0
+                if oracle.is_padding_ok(bytes(iv + c2)):
                     break
         ans += p2
 
