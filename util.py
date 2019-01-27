@@ -24,6 +24,10 @@ def rint(a, b):
     return a + secrets.randbelow(b - a + 1)
 
 
+def rchoice(seq):
+    return secrets.choice(seq)
+
+
 def pairs(it):
     # pairs('cats') -> ('c', 'a'), ('a', 't'), ('t', 's')
     a, b = itertools.tee(it)
