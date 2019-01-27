@@ -1,6 +1,6 @@
-# cryptopals
 Solutions to the [Cryptopals] challenges.
 
+## Usage
 Reformat, type check, and run tests:
 
 ```
