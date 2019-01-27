@@ -9,7 +9,7 @@ from Cryptodome.Util.strxor import strxor
 
 
 def xor(a, b):
-    # len(xor(a, b)) == min(len(a), len(b))
+    # If len(a) == len(b), use `strxor`.
     return bytes(x ^ y for x, y in zip(a, b))
 
 
