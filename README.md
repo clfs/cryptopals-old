@@ -15,5 +15,6 @@ Everything should work on Python 3.7 (or above) and Go 1.11 (or above).
 ## Exceptions
 - Problem 19 - Skipped; read file for info
 - Problem 20 - Use `pytest -s` to inspect STDOUT
+- Problem 22 - Replace seconds with milliseconds for speed-up
 
 [Cryptopals]: https://cryptopals.com
