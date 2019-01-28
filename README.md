@@ -6,9 +6,9 @@ Everything should work on Python 3.7 (or above) and Go 1.11 (or above).
 ## Usage
 | Task | Command |
 | ---- | ------- |
-| Reformat `.py` files | `black .` |
-| Reformat `.go` files | `gofmt -s -w .` |
-| Typecheck `.py` files | `mypy .` |
+| Reformat `*.py` | `black .` |
+| Reformat `*.go` | `gofmt -s -w .` |
+| Typecheck `*.py` | `mypy .` |
 | Run Python tests | `pytest` |
 | Run Go tests | `go test` |
 
