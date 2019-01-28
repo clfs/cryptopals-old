@@ -18,7 +18,7 @@ class AesCtrEditingCipher:
         self.ecb = AES.new(key, AES.MODE_ECB)
         self.nonce = nonce
 
-    def _keystream(self, offset: int = 0):
+    def _keystream(self, offset=0):
         to8bytes = Struct("<Q").pack  # optimization
 
         c = offset // 16
